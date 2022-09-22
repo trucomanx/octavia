@@ -24,27 +24,23 @@ import processinglib
 ################################################################################
 ## VARIABLES 
 
-'''
-language = 'es';
-vosk_model_path="/mnt/boveda/VOSK/vosk-model-es-0.42";
-response_text='Sí, en qué puedo ayudar?';
-octavia_name='octavia';
-initial_msg='octavia initializada.';
-'''
+init_data=dict();
 
-language = 'en';
-vosk_model_path="/mnt/boveda/VOSK/vosk-model-small-en-us-0.15";
-response_text='Yes. Can I help you?';
-octavia_name='octavia';
-initial_msg='octavia initialized.';
+with open('octavia.es.json', 'r') as fcc_file:
+    init_data = json.load(fcc_file)
 
+language       = init_data['language'];
+vosk_model_path= init_data['vosk_model_path'];
+response_text  = init_data['response_text'];
+octavia_name   = init_data['octavia_name'];
+initial_msg    = init_data['initial_msg'];
 
-filename_tmp="temporal-file-trash.mp3"
-sample_rate  =16000;
-num_of_frames= 4000;
-input_symbol='<<';
-output_symbol='>>';
-bypass_symbol='::';
+filename_tmp   = init_data['filename_tmp'];
+sample_rate    = init_data['sample_rate'];
+num_of_frames  = init_data['num_of_frames'];
+input_symbol   = init_data['input_symbol'];
+output_symbol  = init_data['output_symbol'];
+bypass_symbol  = init_data['bypass_symbol'];
 
 ################################################################################
 
