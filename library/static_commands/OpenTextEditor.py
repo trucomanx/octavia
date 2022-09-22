@@ -3,6 +3,7 @@
 import os
 import sys
 import speaklib
+import subprocess
 
 class OpenTextEditor:
     def __init__(self,lang,stream,tmpfile):
@@ -18,17 +19,17 @@ class OpenTextEditor:
     
     def get_text_command(self):
         if(self.lang=='es'):
-            return ['abre el editor de texto'];
+            return ['abre el editor de texto','abre mi editor de texto'];
         else:
-            return ['open the text editor'];
+            return ['open the text editor','open my text editor'];
     
     def execute_command(self):
         if( sys.platform=='linux'):
-            os.system('gedit');
+            subprocess.run(["gedit"]);
         elif( sys.platform=='win32'):
-            os.system('notepad');
+            subprocess.run(["notepad"]);
         else:
-            os.system('gedit');
+            subprocess.run(["gedit"]);
         
         if(self.lang=='es'):
             msg='Abriendo editor de texto';

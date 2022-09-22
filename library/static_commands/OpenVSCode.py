@@ -2,6 +2,7 @@
 
 import os
 import speaklib
+import subprocess
 
 class OpenVSCode:
     def __init__(self,lang,stream,tmpfile):
@@ -21,7 +22,7 @@ class OpenVSCode:
         else:
             return ['open visual studio code'];
     def execute_command(self):
-        os.system('code') 
+        subprocess.run(["code"])
         
         if(self.lang=='es'):
             msg='Abriendo visual studio code';
