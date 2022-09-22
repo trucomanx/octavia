@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import os
+import sys
 
 class Restart:
     def __init__(self,lang,stream,tmpfile):

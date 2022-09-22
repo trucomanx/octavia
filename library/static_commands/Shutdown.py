@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import os
+import sys
 
 class Shutdown:
     def __init__(self,lang,stream,tmpfile):
