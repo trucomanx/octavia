@@ -14,7 +14,7 @@ def load_init_json_file(lang_default='en'):
         return fpath;
     else:
         fsource=os.path.dirname(__file__);
-        fsource=os.path.join(fsource,'..','..','octavia.'+lang_default+'.json');
+        fsource=os.path.join(fsource,'..','..','config','octavia.'+lang_default+'.json');
         shutil.copy(fsource,fpath);
         
         if os.path.isfile(fpath):
