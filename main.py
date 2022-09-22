@@ -1,7 +1,10 @@
 #!/usr/bin/python
 
 import sys 
-sys.path.append('library')
+import os
+
+lib_path=os.path.join(os.path.dirname(__file__),'library');
+sys.path.append(lib_path)
 
 
 ################################################################################
@@ -10,7 +13,7 @@ sys.path.append('library')
 from vosk import Model, KaldiRecognizer
 import pyaudio
 import json
-import os
+
 
 # propia
 import speaklib
