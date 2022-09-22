@@ -3,6 +3,7 @@
 import sys 
 sys.path.append('library')
 
+
 ################################################################################
 
 # externas
@@ -42,11 +43,30 @@ bypass_symbol  = init_data['bypass_symbol'];
 
 ################################################################################
 
-
- # Preparando o microfone para captura
+# Preparando o microfone para captura
 p = pyaudio.PyAudio()
 stream = p.open(format=pyaudio.paInt16, channels=1, rate=sample_rate, input=True, frames_per_buffer=int(num_of_frames*2))
 stream.start_stream()
+
+################################################################################
+# Load the static command
+static_class=processinglib.get_static_command_class_list(language,stream,filename_tmp); # classes
+static_commands    =[cls.get_text_command() for cls in static_class ];                  # text commands
+static_descriptions=[cls.get_description() for cls in static_class ];                   # text description
+
+if '--list-static-commands' in sys.argv:
+    for n in range(len(static_descriptions)):
+        print('commands:',static_commands[n])
+        print('descriptions:',static_descriptions[n])
+        print('');
+    sys.exit('');
+
+
+
+################################################################################
+
+
+
 
 
 # Apontando o algoritmo para ler o modelo treinado na pasta vosk_model_path
@@ -57,9 +77,7 @@ if not os.path.exists(vosk_model_path):
 model = Model(vosk_model_path)
 rec = KaldiRecognizer(model, sample_rate)
 
-# Load the static command
-static_class=processinglib.get_static_command_class_list(language,stream,filename_tmp); # classes
-static_commands=[cls.get_text_command() for cls in static_class ];                      # text commands
+
 
 # Init message
 speaklib.speak_the_text(stream,initial_msg,lang=language,ftemp=filename_tmp);

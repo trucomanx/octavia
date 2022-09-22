@@ -38,3 +38,8 @@ The `octavia.json` should be have the next structure:
         "output_symbol":">>",
         "bypass_symbol":"::"
     }
+
+# List of Command Line Commands
+
+    python3 main.py --list-static-commands
+
