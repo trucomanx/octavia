@@ -1,0 +1,13 @@
+{
+    "language" : "en",
+    "vosk_model_path":"/mnt/boveda/VOSK/vosk-model-small-en-us-0.15",
+    "response_text":"Yes. Can I help you?",
+    "octavia_name":"octavia",
+    "initial_msg":"octavia initialized.",
+    "filename_tmp":"temporal-file-trash.mp3",
+    "sample_rate"  : 16000,
+    "num_of_frames":  4000,
+    "input_symbol":"<<",
+    "output_symbol":">>",
+    "bypass_symbol":"::"
+}
