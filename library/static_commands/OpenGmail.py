@@ -2,6 +2,7 @@
 
 #import os
 import webbrowser
+import speaklib
 
 class OpenGmail:
     def __init__(self,lang,stream,tmpfile):
@@ -22,6 +23,12 @@ class OpenGmail:
             return 'open google gmail';
     
     def execute_command(self):
-        webbrowser.open('http://gmail.com') 
+        URL='http://gmail.com';
+        webbrowser.open(URL) 
         
+        if(self.lang=='es'):
+            msg='Abriendo '+URL;
+        else:
+            msg='Opening '+URL;
+        speaklib.speak_the_text(self.stream,msg,lang=self.lang,ftemp=self.tmpfile);
         return;

@@ -2,6 +2,7 @@
 
 import os
 import sys
+import speaklib
 
 class Shutdown:
     def __init__(self,lang,stream,tmpfile):
@@ -29,4 +30,9 @@ class Shutdown:
         else:
             os.system("shutdown -P");
         
+        if(self.lang=='es'):
+            msg='Lanzado comando de apagado';
+        else:
+            msg='launch shutdown command';
+        speaklib.speak_the_text(self.stream,msg,lang=self.lang,ftemp=self.tmpfile);
         return;

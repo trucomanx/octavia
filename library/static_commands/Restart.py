@@ -2,6 +2,7 @@
 
 import os
 import sys
+import speaklib
 
 class Restart:
     def __init__(self,lang,stream,tmpfile):
@@ -29,4 +30,9 @@ class Restart:
         else:
             os.system("shutdown -r");
         
+        if(self.lang=='es'):
+            msg='Lanzado comando de reinicio';
+        else:
+            msg='launch restart command';
+        speaklib.speak_the_text(self.stream,msg,lang=self.lang,ftemp=self.tmpfile);
         return;

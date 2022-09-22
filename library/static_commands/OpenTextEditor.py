@@ -2,6 +2,7 @@
 
 import os
 import sys
+import speaklib
 
 class OpenTextEditor:
     def __init__(self,lang,stream,tmpfile):
@@ -29,5 +30,9 @@ class OpenTextEditor:
         else:
             os.system('gedit');
         
-        
+        if(self.lang=='es'):
+            msg='Abriendo editor de texto';
+        else:
+            msg='Opening editor de texto';
+        speaklib.speak_the_text(self.stream,msg,lang=self.lang,ftemp=self.tmpfile);
         return;
