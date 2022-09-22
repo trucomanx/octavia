@@ -18,9 +18,9 @@ class OpenGmail:
     
     def get_text_command(self):
         if(self.lang=='es'):
-            return 'abre google mail';
+            return ['abre google mail','abre mi google mail','abre mi correo electrónico'];
         else:
-            return 'open google gmail';
+            return ['open google gmail'];
     
     def execute_command(self):
         URL='http://gmail.com';

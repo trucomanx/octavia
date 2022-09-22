@@ -18,9 +18,9 @@ class Shutdown:
     
     def get_text_command(self):
         if(self.lang=='es'):
-            return 'desconecta la computadora';
+            return ['desconecta la computadora'];
         else:
-            return 'shutdown the computer';
+            return ['shutdown the computer'];
     
     def execute_command(self):
         if( sys.platform=='linux'):

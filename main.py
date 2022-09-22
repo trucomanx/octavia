@@ -15,6 +15,7 @@ import os
 import speaklib
 import processinglib
 import tools.init_work as iw
+import tools.generic as tg
 
 ################################################################################
 ## VARIABLES 
@@ -58,7 +59,7 @@ rec = KaldiRecognizer(model, sample_rate)
 
 # Load the static command
 static_class=processinglib.get_static_command_class_list(language,stream,filename_tmp); # classes
-static_commands=[cls.get_text_command() for cls in static_class ];         # text commands
+static_commands=[cls.get_text_command() for cls in static_class ];                      # text commands
 
 # Init message
 speaklib.speak_the_text(stream,initial_msg,lang=language,ftemp=filename_tmp);
@@ -87,10 +88,11 @@ while True:
             
             elif enable_command==True:
                 print(input_symbol,texto);
-                if texto in static_commands:    # Execute command with literal text
-                    ID=static_commands.index(texto);
+                LID=tg.text_exist_in_double_list(texto,static_commands);
+                if LID>=0:    # Execute command with literal text
+                    ID=static_commands.index(static_commands[LID]);
                     static_class[ID].execute_command();
-                else:                           # Analise the text and execute the processed information
+                else:         # Analise the text and execute the processed information
                     processinglib.processing_command(texto,lang=language);
                 enable_command=False;
             else:

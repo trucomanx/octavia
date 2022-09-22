@@ -15,7 +15,7 @@ def load_init_json_file(lang_default='en'):
     else:
         fsource=os.path.dirname(__file__);
         fsource=os.path.join(fsource,'..','..','octavia.'+lang_default+'.json');
-        shutil.move(fsource,fpath);
+        shutil.copy(fsource,fpath);
         
         if os.path.isfile(fpath):
             msg='It was created the init file : '+fpath;

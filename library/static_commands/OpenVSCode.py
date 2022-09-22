@@ -17,9 +17,9 @@ class OpenVSCode:
     
     def get_text_command(self):
         if(self.lang=='es'):
-            return 'abre visual studio code';
+            return ['abre visual studio code'];
         else:
-            return 'open visual studio code';
+            return ['open visual studio code'];
     def execute_command(self):
         os.system('code') 
         

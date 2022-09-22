@@ -18,9 +18,9 @@ class OpenTextEditor:
     
     def get_text_command(self):
         if(self.lang=='es'):
-            return 'abre el editor de texto';
+            return ['abre el editor de texto'];
         else:
-            return 'open the text editor';
+            return ['open the text editor'];
     
     def execute_command(self):
         if( sys.platform=='linux'):

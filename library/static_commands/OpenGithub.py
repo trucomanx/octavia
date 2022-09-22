@@ -18,9 +18,9 @@ class OpenGithub:
     
     def get_text_command(self):
         if(self.lang=='es'):
-            return 'abre mi repositorio';
+            return ['abre mi repositorio', 'abre el repositorio'];
         else:
-            return 'open github';
+            return ['open github','open my repostory','open the repostory'];
     
     def execute_command(self):
         URL='http://github.com';
