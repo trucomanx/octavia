@@ -15,13 +15,13 @@ from pydoc import locate
 
 
 def get_static_command_class_list(lang,stream,filename_tmp):
-    base_dir='static_commands';
-    sc_path=os.path.join(os.path.dirname(__file__),base_dir);
+    relative_dir='static_commands';
+    sc_path=os.path.join(os.path.dirname(__file__),relative_dir);
     class_list=[];
     for (dirpath, dirnames, filenames) in walk(sc_path):
         for fpath in filenames:
             basename=os.path.splitext(fpath)[0];
-            cadena= base_dir+'.'+basename+'.'+basename;
+            cadena= relative_dir+'.'+basename+'.'+basename;
             print('Loading sub module:',cadena);
             klass = locate(cadena);
             class_list.append(klass(lang,stream,filename_tmp));

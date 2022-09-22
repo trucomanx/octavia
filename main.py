@@ -14,14 +14,16 @@ import os
 # propia
 import speaklib
 import processinglib
-
+import tools.init_work as iw
 
 ################################################################################
 ## VARIABLES 
 
 init_data=dict();
 
-with open('octavia.es.json', 'r') as fcc_file:
+init_json_file=iw.load_init_json_file('en');
+
+with open(init_json_file, 'r') as fcc_file:
     init_data = json.load(fcc_file)
 
 language       = init_data['language'];
