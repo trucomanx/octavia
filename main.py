@@ -1,10 +1,5 @@
 #!/usr/bin/python
 
-#!pip3 install pyaudio
-#!pip3 install vosk
-#!pip3 install json
-#!pip3 install webbrowser
-
 import sys 
 sys.path.append('library')
 

@@ -1,5 +1,6 @@
 
 import gtts
+import os
 from playsound import playsound
 
 def speak_the_text(stream,resposta,lang='es',ftemp='temporal_file.mp3'):
@@ -8,4 +9,6 @@ def speak_the_text(stream,resposta,lang='es',ftemp='temporal_file.mp3'):
     
     stream.stop_stream()
     playsound(ftemp);
+    os.remove(ftemp);
     stream.start_stream()
+
