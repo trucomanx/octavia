@@ -25,11 +25,11 @@ class OpenTextEditor:
     
     def execute_command(self):
         if( sys.platform=='linux'):
-            subprocess.run(["gedit"]);
+            subprocess.Popen("gedit");
         elif( sys.platform=='win32'):
-            subprocess.run(["notepad"]);
+            subprocess.Popen("notepad");
         else:
-            subprocess.run(["gedit"]);
+            subprocess.Popen("gedit");
         
         if(self.lang=='es'):
             msg='Abriendo editor de texto';

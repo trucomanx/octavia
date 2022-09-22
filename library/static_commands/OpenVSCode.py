@@ -22,7 +22,7 @@ class OpenVSCode:
         else:
             return ['open visual studio code'];
     def execute_command(self):
-        subprocess.run(["code"])
+        subprocess.Popen("code")
         
         if(self.lang=='es'):
             msg='Abriendo visual studio code';
