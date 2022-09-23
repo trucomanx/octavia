@@ -12,6 +12,15 @@ Install the required python modules:
 
     pip3 install -r requirements.txt
 
+in windows also need 
+
+    pip3 install -r requirements.win32.txt
+
+
+### Requirements in Ubuntu
+
+    xargs sudo apt-get install < packages.txt
+
 ## Download VOSK model 
 
 Download a vosk model from:
