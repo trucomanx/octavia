@@ -18,17 +18,17 @@ class OpenWhatsapp:
     
     def get_text_command(self):
         if(self.lang=='es'):
-            return ['abre whatsapp','abre mi programa de mensajería'];
+            return ['abre whatsapp','abre mi whatsapp'];
         else:
             return ['open whatsapp'];
     
     def execute_command(self):
         URL='https://web.whatsapp.com';
-        webbrowser.open(URL) 
         
         if(self.lang=='es'):
             msg='Abriendo '+URL;
         else:
             msg='Opening '+URL;
         speaklib.speak_the_text(self.stream,msg,lang=self.lang,ftemp=self.tmpfile);
+        webbrowser.open(URL);
         return;

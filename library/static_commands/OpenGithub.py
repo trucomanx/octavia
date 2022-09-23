@@ -24,10 +24,11 @@ class OpenGithub:
     
     def execute_command(self):
         URL='http://github.com';
-        webbrowser.open(URL) 
+        
         if(self.lang=='es'):
             msg='Abriendo '+URL;
         else:
             msg='Opening '+URL;
         speaklib.speak_the_text(self.stream,msg,lang=self.lang,ftemp=self.tmpfile);
+        webbrowser.open(URL);
         return;

@@ -12,7 +12,7 @@ import os
 from os import walk
 
 from pydoc import locate
-
+import speaklib
 
 def get_static_command_class_list(lang,stream,filename_tmp):
     relative_dir='static_commands';
@@ -29,21 +29,13 @@ def get_static_command_class_list(lang,stream,filename_tmp):
     return class_list;
 
 
-def processing_command(text,lang='es'):
+def processing_command(text,lang,stream,ftemp):
+    if lang=='es':
+        msg='comando no implementado: ';
+    else:
+        msg='command not implemented: ';
+    speaklib.speak_the_text(stream,msg+text,lang=lang,ftemp=ftemp);
     print(">>",text);
     '''
-    if (texto=='desconecta la computadora'):
-        command_shutdown();
-        
-        resposta='desconectando la computadora, por favor espere ...';
-        speaklib.speak_the_text(stream,resposta,lang=language,ftemp=filename_tmp);
-        print(">>",resposta)
-        enable_command=False;
-    else:
-        command_open_program(texto);
-        
-        resposta='Abriendo: '+texto;
-        speaklib.speak_the_text(stream,resposta,lang=language,ftemp=filename_tmp);
-        print(">>",resposta)
-        enable_command=False;
+
     '''

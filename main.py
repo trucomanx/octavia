@@ -86,6 +86,15 @@ rec = KaldiRecognizer(model, sample_rate)
 speaklib.speak_the_text(stream,initial_msg,lang=language,ftemp=filename_tmp);
 print(initial_msg);
 
+
+def execute_static_command_if_exist(texto,static_commands,static_class,stream,language,filename_tmp):
+    LID=tg.text_exist_in_double_list(texto,static_commands);
+    if LID>=0:    # Execute command with literal text
+        ID=static_commands.index(static_commands[LID]);
+        static_class[ID].execute_command();
+    else:         # Analise the text and execute the processed information
+        processinglib.processing_command(texto,lang=language, stream=stream,ftemp=filename_tmp);
+
 enable_command=False;
 
 while True:
@@ -99,22 +108,23 @@ while True:
         texto=obj_dict["text"].lower();
         
         if len(texto)>0:
-            if (texto==octavia_name):
+            if texto.startswith(octavia_name):
+                print("passe")
+                nn=len(octavia_name);
                 print(input_symbol,texto);
-                resposta=response_text;
-                speaklib.speak_the_text(stream,resposta,lang=language,ftemp=filename_tmp);
-                print(output_symbol,resposta)
-                
-                enable_command=True;
+                if(octavia_name==texto):
+                    resposta=response_text;
+                    speaklib.speak_the_text(stream,resposta,lang=language,ftemp=filename_tmp);
+                    print(output_symbol,resposta)
+                    enable_command=True;
+                else:
+                    texto=texto[nn:].strip();
+                    execute_static_command_if_exist(texto,static_commands,static_class,stream,language,filename_tmp)
+                    enable_command=False;
             
             elif enable_command==True:
                 print(input_symbol,texto);
-                LID=tg.text_exist_in_double_list(texto,static_commands);
-                if LID>=0:    # Execute command with literal text
-                    ID=static_commands.index(static_commands[LID]);
-                    static_class[ID].execute_command();
-                else:         # Analise the text and execute the processed information
-                    processinglib.processing_command(texto,lang=language);
+                execute_static_command_if_exist(texto,static_commands,static_class,stream,language,filename_tmp);
                 enable_command=False;
             else:
                 print(bypass_symbol,texto);
