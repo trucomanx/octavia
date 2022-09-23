@@ -19,7 +19,7 @@ import json
 import speaklib
 import processinglib
 import tools.init_work as iw
-import tools.generic as tg
+
 
 ################################################################################
 ## VARIABLES 
@@ -68,10 +68,6 @@ if '--list-static-commands' in sys.argv:
 
 ################################################################################
 
-
-
-
-
 # Apontando o algoritmo para ler o modelo treinado na pasta vosk_model_path
 if not os.path.exists(vosk_model_path):
     msg="Model files path not exist:";
@@ -80,20 +76,11 @@ if not os.path.exists(vosk_model_path):
 model = Model(vosk_model_path)
 rec = KaldiRecognizer(model, sample_rate)
 
-
+################################################################################
 
 # Init message
 speaklib.speak_the_text(stream,initial_msg,lang=language,ftemp=filename_tmp);
 print(initial_msg);
-
-
-def execute_static_command_if_exist(texto,static_commands,static_class,stream,language,filename_tmp):
-    LID=tg.text_exist_in_double_list(texto,static_commands);
-    if LID>=0:    # Execute command with literal text
-        ID=static_commands.index(static_commands[LID]);
-        static_class[ID].execute_command();
-    else:         # Analise the text and execute the processed information
-        processinglib.processing_command(texto,lang=language, stream=stream,ftemp=filename_tmp);
 
 enable_command=False;
 
@@ -119,12 +106,12 @@ while True:
                     enable_command=True;
                 else:
                     texto=texto[nn:].strip();
-                    execute_static_command_if_exist(texto,static_commands,static_class,stream,language,filename_tmp)
+                    processinglib.execute_text_command( texto,static_commands,static_class,stream,language,filename_tmp);
                     enable_command=False;
             
             elif enable_command==True:
                 print(input_symbol,texto);
-                execute_static_command_if_exist(texto,static_commands,static_class,stream,language,filename_tmp);
+                processinglib.execute_text_command( texto,static_commands,static_class,stream,language,filename_tmp);
                 enable_command=False;
             else:
                 print(bypass_symbol,texto);
