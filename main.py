@@ -6,7 +6,6 @@ import os
 lib_path=os.path.join(os.path.dirname(__file__),'library');
 sys.path.append(lib_path)
 
-
 ################################################################################
 
 # externas
@@ -19,7 +18,6 @@ import json
 import speaklib
 import processinglib
 import tools.init_work as iw
-
 
 ################################################################################
 ## VARIABLES 
@@ -64,8 +62,6 @@ if '--list-static-commands' in sys.argv:
         print('');
     sys.exit('');
 
-
-
 ################################################################################
 
 # Apontando o algoritmo para ler o modelo treinado na pasta vosk_model_path
@@ -96,7 +92,6 @@ while True:
         
         if len(texto)>0:
             if texto.startswith(octavia_name):
-                print("passe")
                 nn=len(octavia_name);
                 print(input_symbol,texto);
                 if(octavia_name==texto):
@@ -113,5 +108,6 @@ while True:
                 print(input_symbol,texto);
                 processinglib.execute_text_command( texto,static_commands,static_class,stream,language,filename_tmp);
                 enable_command=False;
+            
             else:
                 print(bypass_symbol,texto);

@@ -1,13 +1,5 @@
 #!/usr/bin/python
 
-# abre gmail
-# abre navegador
-# reinicia
-# desconecta 
-# busca en google :: texto
-# bloquea pantalla
-# executa musica
-
 import os
 from os import walk
 

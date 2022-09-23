@@ -24,11 +24,11 @@ class Restart:
     
     def execute_command(self):
         if( sys.platform=='linux'):
-            os.system("shutdown -r");
+            os.system("shutdown -r 0");
         elif( sys.platform=='win32'):
             os.system("shutdown  /r /t 3");
         else:
-            os.system("shutdown -r");
+            os.system("shutdown -r 0");
         
         if(self.lang=='es'):
             msg='Lanzado comando de reinicio';

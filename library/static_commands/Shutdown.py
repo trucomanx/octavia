@@ -24,11 +24,11 @@ class Shutdown:
     
     def execute_command(self):
         if( sys.platform=='linux'):
-            os.system("shutdown -P");
+            os.system("shutdown -P now");
         elif( sys.platform=='win32'):
             os.system("shutdown  /s /t 3");
         else:
-            os.system("shutdown -P");
+            os.system("shutdown -P now");
         
         if(self.lang=='es'):
             msg='Lanzado comando de apagado';
