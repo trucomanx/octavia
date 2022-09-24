@@ -26,9 +26,9 @@ class OpenWhatsapp:
         URL='https://web.whatsapp.com';
         
         if(self.lang=='es'):
-            msg='Abriendo '+URL;
+            msg='Abriendo whatsapp';
         else:
-            msg='Opening '+URL;
+            msg='Opening whatsapp';
         speaklib.speak_the_text(self.stream,msg,lang=self.lang,ftemp=self.tmpfile);
         webbrowser.open(URL);
         return;

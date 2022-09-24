@@ -4,7 +4,7 @@
 import webbrowser
 import speaklib
 
-class OpenGmail:
+class OpenSpotify:
     def __init__(self,lang,stream,tmpfile):
         self.lang = lang;
         self.stream=stream;
@@ -12,23 +12,23 @@ class OpenGmail:
     
     def get_description(self):
         if(self.lang=='es'):
-            return 'abre gmail en el navegador por defecto';
+            return 'abre spotify en el navegador por defecto';
         else:
-            return 'open gmail in the default web browser';
+            return 'open spotify in the default web browser';
     
     def get_text_command(self):
         if(self.lang=='es'):
-            return ['abre google mail','abre mi google mail','abre mi correo electrónico'];
+            return ['abre spotify'];
         else:
-            return ['open google gmail'];
+            return ['open spotify'];
     
     def execute_command(self):
-        URL='http://gmail.com';
+        URL='https://open.spotify.com/search';
         
         if(self.lang=='es'):
-            msg='Abriendo gmail';
+            msg='Abriendo spotify';
         else:
-            msg='Opening gmail';
+            msg='Opening spotify';
         speaklib.speak_the_text(self.stream,msg,lang=self.lang,ftemp=self.tmpfile);
-        webbrowser.open(URL) 
+        webbrowser.open(URL);
         return;

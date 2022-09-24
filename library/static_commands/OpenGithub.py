@@ -26,9 +26,9 @@ class OpenGithub:
         URL='http://github.com';
         
         if(self.lang=='es'):
-            msg='Abriendo '+URL;
+            msg='Abriendo github';
         else:
-            msg='Opening '+URL;
+            msg='Opening github';
         speaklib.speak_the_text(self.stream,msg,lang=self.lang,ftemp=self.tmpfile);
         webbrowser.open(URL);
         return;
