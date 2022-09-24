@@ -22,7 +22,7 @@ in windows also need
     pip3 install -r requirements.win32.txt
 
 
-### Requirements in Ubuntu
+### System requirements in Ubuntu
 
     xargs sudo apt-get install < packages.txt
 
