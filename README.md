@@ -5,6 +5,11 @@ Octavia is a voice-controlled virtual assistant
 
     python3 main.py
 
+# Current static commands
+These are commands that match exact text, without text interpretation.
+
+    python3 main.py --list-static-commands
+
 # Install
 
 ## Requirements
@@ -29,7 +34,7 @@ Download a vosk model from:
 
 Later, unzip the model in some subdirectory in `/path/of/model`.
 
-## Modified the octavia configuration file
+## Modifying the octavia configuration file
 
 Modified or create the `octavia.json` in the `home` user directory.
 The `octavia.json` should be have the next structure:
@@ -48,7 +53,5 @@ The `octavia.json` should be have the next structure:
         "bypass_symbol":"::"
     }
 
-# List of Command Line Commands
 
-    python3 main.py --list-static-commands
 
