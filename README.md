@@ -1,4 +1,4 @@
-# octavia
+# Octavia
 Octavia is a voice-controlled virtual assistant
 
 # Execute
