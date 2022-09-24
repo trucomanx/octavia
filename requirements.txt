@@ -1,5 +1,3 @@
 pyaudio
 vosk
-json
-webbrowser
 xerox

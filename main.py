@@ -51,14 +51,19 @@ stream.start_stream()
 
 ################################################################################
 # Load the static command
+print('\n')
 static_class=processinglib.get_static_command_class_list(language,stream,filename_tmp); # classes
 static_commands    =[cls.get_text_command() for cls in static_class ];                  # text commands
 static_descriptions=[cls.get_description() for cls in static_class ];                   # text description
 
 if '--list-static-commands' in sys.argv:
+    print('')
+    print('COMMAND LIST')
+    print('============')
+    print('')
     for n in range(len(static_descriptions)):
-        print('commands:',static_commands[n])
-        print('descriptions:',static_descriptions[n])
+        print('   commands: ',static_commands[n])
+        print('description: ',static_descriptions[n])
         print('');
     sys.exit('');
 
