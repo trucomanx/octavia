@@ -34,7 +34,6 @@ import tools.generic as tg
 def execute_text_command(texto,static_commands,static_class,stream,language,filename_tmp):
     LID=tg.text_exist_in_double_list(texto,static_commands);
     if LID>=0:    # Execute command with literal text
-        ID=static_commands.index(static_commands[LID]);
-        static_class[ID].execute_command();
+        static_class[LID].execute_command();
     else:         # Analise the text and execute the processed information
         processing_command(texto,lang=language, stream=stream,ftemp=filename_tmp);
